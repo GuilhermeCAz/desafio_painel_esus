@@ -1,0 +1,5 @@
+name: desafio_painel_esus
+
+services:
+  app:
+    build: .
