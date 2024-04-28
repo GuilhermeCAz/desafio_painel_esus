@@ -1,3 +1,5 @@
+"""Module used for defining custom configuration."""
+
 import pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent

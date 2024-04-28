@@ -1,3 +1,5 @@
+"""Module containing main structure of the app."""
+
 import pandas as pd
 from flask import Flask, jsonify, request, wrappers
 from flask.json.provider import DefaultJSONProvider
@@ -9,6 +11,14 @@ DefaultJSONProvider.sort_keys = False
 
 
 def get_dataframe() -> pd.DataFrame:
+    """
+    Extract data from CSV, parse date columns and standardize names.
+
+    Returns
+    -------
+        DataFrame containing parsed dates.
+
+    """
     atendimentos = pd.read_csv(
         filepath_or_buffer=ROOT / 'db' / 'atendimentos.csv',
         index_col=[0],
@@ -27,6 +37,17 @@ def get_dataframe() -> pd.DataFrame:
 
 @app.route(ATENDIMENTOS_ENDPOINT, methods=['GET'])
 def get_atendimentos() -> wrappers.Response:
+    """
+    Define an app route for getting data about patients.
+
+    Allows filters on three parameters:
+        condicao_saude, unidade and data_atendimento
+
+    Returns
+    -------
+        JSON-formatted HTTP response.
+
+    """
     atendimentos = get_dataframe()
     for param, value in request.args.items():
         if param in ('condicao_saude', 'unidade', 'data_atendimento'):
@@ -38,6 +59,11 @@ def get_atendimentos() -> wrappers.Response:
 
 
 def main() -> None:
+    """
+    Run Flask app through python, instead of using 'flask run' command.
+
+    Used solely for debugging.
+    """
     app.run()
 
 
