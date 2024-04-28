@@ -2,7 +2,7 @@
 
 ## What is this repository about?
 
-I was challenged to showcase my skills based on the problem described on [DESAFIO.md](../blob/main/DESAFIO.md).
+I was challenged to showcase my skills based on the problem described on [DESAFIO.md](../main/DESAFIO.md).
 
 It involves using the Flask framework to develop a REST API. The API returns data about patients of a medical facility, as provided by a csv.
 
@@ -14,7 +14,7 @@ Clone the repository
 git clone https://github.com/GuilhermeCAz/desafio_painel_esus.git
 ```
 
-> Docker sets up the environment according to the Dockerfile, which means you can skip the following steps straight to [#Docker](#Docker).
+> Docker sets up the environment according to the Dockerfile, which means you can skip the following steps straight to [#Running via Docker](#running-via-docker).
 
 From the folder, create and activate a virtual environment
 
